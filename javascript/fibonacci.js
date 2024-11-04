@@ -1,24 +1,19 @@
 function fibonacci(num) {
-  // type your code here
-}
+  const fibarray = [0, 1];
+  let lastNum = 1;
+  let secLastNum = 0;
 
-if (require.main === module) {
-  // add your own tests in here
-  console.log("Expecting: 0");
-  console.log("=>", fibonacci(0));
-
-  console.log("");
-
-  console.log("Expecting: 1");
-  console.log("=>", fibonacci(2));
-
-  console.log("");
-
-  console.log("Expecting: 55");
-  console.log("=>", fibonacci(10));
+  if (num === 0) {
+    return 0;
+  } else {
+    for (let i = 2; i < num + 1; i++) {
+      let nextNum = lastNum + secLastNum;
+      fibarray.push(nextNum);
+      secLastNum = lastNum;
+      lastNum = nextNum;
+    }
+    return fibarray[fibarray.length - 1];
+  }
 }
 
 module.exports = fibonacci;
-
-// Please add your pseudocode to this file
-// And a written explanation of your solution
